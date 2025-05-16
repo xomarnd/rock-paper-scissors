@@ -1,6 +1,7 @@
 plugins {
     java
     application
+    alias(libs.plugins.shadow)
 }
 
 dependencies {
@@ -15,6 +16,22 @@ dependencies {
     implementation(libs.netty.common)
     implementation(libs.netty.resolver)
     implementation(libs.netty.codec.http)
+}
+
+tasks.register<Jar>("fatJar") {
+    archiveBaseName.set("rps-server-all")
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    manifest {
+        attributes["Main-Class"] = "com.github.xomarnd.rps.server.ServerApp"
+    }
+    from(configurations.runtimeClasspath.get().map { if (it.isDirectory) it else zipTree(it) })
+    with(tasks.jar.get() as CopySpec)
+}
+
+tasks.withType<com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar> {
+    archiveBaseName.set("rps-server-all")
+    archiveClassifier.set("")
+    archiveVersion.set("")
 }
 
 application {
