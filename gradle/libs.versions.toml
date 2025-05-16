@@ -3,12 +3,25 @@
 
 [versions]
 java = "17"
-junit = "5.12.2"
+junit = "5.10.2"
 guava = "33.2.1-jre"
+slf4j = "2.0.12"
+logback = "1.5.18"
+netty = "4.2.1.Final"
 
 [libraries]
 guava = { module = "com.google.guava:guava", version.ref = "guava" }
 junit-jupiter = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit" }
+slf4j-api = { module = "org.slf4j:slf4j-api", version.ref = "slf4j" }
+logback-classic = { module = "ch.qos.logback:logback-classic", version.ref = "logback" }
+
+netty-transport = { module = "io.netty:netty-transport", version.ref = "netty" }
+netty-handler   = { module = "io.netty:netty-handler",   version.ref = "netty" }
+netty-codec     = { module = "io.netty:netty-codec",     version.ref = "netty" }
+netty-buffer    = { module = "io.netty:netty-buffer",    version.ref = "netty" }
+netty-common    = { module = "io.netty:netty-common",    version.ref = "netty" }
+netty-resolver  = { module = "io.netty:netty-resolver",  version.ref = "netty" }
+netty-codec-http= { module = "io.netty:netty-codec-http",version.ref = "netty" }
 
 [plugins]
 jacoco = { id = "jacoco", version = "0.8.10" }
