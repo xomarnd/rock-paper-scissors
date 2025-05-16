@@ -24,4 +24,4 @@ netty-resolver  = { module = "io.netty:netty-resolver",  version.ref = "netty" }
 netty-codec-http= { module = "io.netty:netty-codec-http",version.ref = "netty" }
 
 [plugins]
-jacoco = { id = "jacoco", version = "0.8.10" }
+shadow = { id = "com.github.johnrengelman.shadow", version = "8.1.1" }
